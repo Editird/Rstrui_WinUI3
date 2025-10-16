@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Rstrui_WinUI3 (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Rstrui_WinUI3 (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
