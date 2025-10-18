@@ -34,7 +34,7 @@ namespace Rstrui_WinUI3
         /// </summary>
         public App()
         {
-			InitializeComponent();
+            InitializeComponent(); // Initialize the XAML components
         }
 
         /// <summary>
@@ -43,7 +43,14 @@ namespace Rstrui_WinUI3
         /// <param name="args">Details about the launch request and process.</param>
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-			_window = new MainWindow();
+            if (_window == null)
+            {
+                _window = new MainWindow();
+                var frame = new Frame();
+                frame.Navigate(typeof(Views.MainPage));
+                _window.Content = frame;
+            }
+
             _window.Activate();
         }
     }

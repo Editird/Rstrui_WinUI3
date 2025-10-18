@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page
+	x:Class="Rstrui_WinUI3.Views.RestoreSelector"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="using:Rstrui_WinUI3.Views"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d">
+
+	<Grid>
+		<!--  自訂標題列  -->
+		<Grid
+			x:Name="AppTitleBar"
+			Height="32"
+			Margin="0,0,0,0"
+			VerticalAlignment="Top"
+			Background="Transparent">
+			<TextBlock
+				Margin="12,0,0,0"
+				VerticalAlignment="Center"
+				FontSize="12"
+				Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+				Text="Fluent System Restore" />
+		</Grid>
+		<!--  主內容  -->
+		<Grid Margin="0,24,0,0" Padding="40,30,40,0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+
+			<!--  標題區域  -->
+			<StackPanel Grid.Row="0" Spacing="8">
+				<TextBlock
+					Margin="0,0,0,7"
+					FontSize="28"
+					FontWeight="SemiBold"
+					Text="Select your Restore points" />
+
+				<StackPanel Orientation="Horizontal">
+					<TextBlock
+						FontSize="14"
+						Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+						LineHeight="20"
+						Text="Current time zone:"
+						TextWrapping="Wrap" />
+					<TextBlock
+						Margin="3,0,0,0"
+						FontSize="14"
+						Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+						LineHeight="20"
+						Text="{x:Bind CurrentTimeZone}"
+						TextWrapping="Wrap" />
+				</StackPanel>
+			</StackPanel>
+
+			<!--  主要內容區塊（預留空間供未來擴充）  -->
+			<Grid Grid.Row="1" Margin="0,20,0,0">
+				<!--  這裡可以放置還原點列表或其他內容  -->
+			</Grid>
+
+			<!--  按鈕區塊  -->
+			<Grid
+				Grid.Row="4"
+				Margin="-30,20,-40,0"
+				Padding="30,16,16,16"
+				Background="{ThemeResource LayerFillColorDefaultBrush}"
+				BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+				BorderThickness="0,1,0,0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+
+				<!--  左側空白區域  -->
+				<Border Grid.Column="0" />
+
+				<!--  Back 按鈕  -->
+				<Button
+					Grid.Column="1"
+					MinWidth="140"
+					Margin="0,0,12,0"
+					Padding="20,7"
+					Click="Back_Click"
+					Content="{x:Bind LocalizedStrings.Back}"
+					Style="{StaticResource DefaultButtonStyle}" />
+
+				<!--  Next 按鈕  -->
+				<Button
+					Grid.Column="2"
+					MinWidth="140"
+					Padding="20,7"
+					Click="Next_Click"
+					Content="{x:Bind LocalizedStrings.Next}"
+					Style="{StaticResource AccentButtonStyle}" />
+			</Grid>
+		</Grid>
+	</Grid>
+</Page>

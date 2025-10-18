@@ -10,6 +10,9 @@
 	<data name="Cancel" xml:space="preserve">
 	  <value>不還原</value>
 	</data>
+	<data name="Back" xml:space="preserve">
+	  <value>返回</value>
+	</data>
 	<data name="Next" xml:space="preserve">
 	  <value>下一步</value>
 	</data>

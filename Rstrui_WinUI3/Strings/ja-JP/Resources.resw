@@ -10,6 +10,9 @@
 	<data name="Cancel" xml:space="preserve">
 	  <value>復元しない</value>
 	</data>
+	<data name="Back" xml:space="preserve">
+	  <value>戻る</value>
+	</data>
 	<data name="Next" xml:space="preserve">
 	  <value>次のステップ</value>
 	</data>
