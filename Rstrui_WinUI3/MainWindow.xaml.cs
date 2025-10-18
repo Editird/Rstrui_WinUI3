@@ -18,19 +18,37 @@ using Windows.Foundation.Collections;
 
 namespace Rstrui_WinUI3
 {
-    /// <summary>
-    /// An empty window that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MainWindow : Window
-    {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+	/// <summary>
+	/// An empty window that can be used on its own or navigated to within a Frame.
+	/// </summary>
+	public sealed partial class MainWindow : Window
+	{
+		public LocalizedStrings LocalizedStrings { get; } = new();
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            // 按鈕被點擊時執行的程式碼
-        }
-    }
+		public MainWindow()
+		{
+			InitializeComponent();
+			ExtendsContentIntoTitleBar = true;
+			SetTitleBar(AppTitleBar);
+		}
+
+		private void Cancel_Click(object sender, RoutedEventArgs e)
+		{
+			// Close Window
+			Close();
+		}
+
+		private void Continue_Click(object sender, RoutedEventArgs e)
+		{
+			// 繼續邏輯
+			ContentDialog dialog = new()
+			{
+				Title = LocalizedStrings.Continue,
+				Content = "Continuing...",
+				CloseButtonText = "OK",
+				XamlRoot = this.Content.XamlRoot
+			};
+			_ = dialog.ShowAsync();
+		}
+	}
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- zh-CN/Resources.resw -->
+	<data name="MainTitle" xml:space="preserve">
+	  <value>系统还原</value>
+	</data>
+	<data name="SubTitle" xml:space="preserve">
+	  <value>系统还原有助于修复电脑问题，通过记录的还原点来恢复您最近的系统更改。这不会影响您的任何文档、照片或其他个人文件。</value>
+	</data>
+	<data name="Cancel" xml:space="preserve">
+	  <value>不还原</value>
+	</data>
+	<data name="Continue" xml:space="preserve">
+	  <value>继续</value>
+	</data>
+</root>

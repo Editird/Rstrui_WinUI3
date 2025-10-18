@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- en-US/Resources.resw -->
+	<data name="MainTitle" xml:space="preserve">
+	  <value>System Restore</value>
+	</data>
+	<data name="SubTitle" xml:space="preserve">
+	  <value>System Restore helps to fix problems with your PC, with a restore point recorded to restore your recent system changes. It does not affect any of your documents, photos, or other personal files.</value>
+	</data>
+	<data name="Cancel" xml:space="preserve">
+	  <value>Don't Restore</value>
+	</data>
+	<data name="Continue" xml:space="preserve">
+	  <value>Continue</value>
+	</data>
+</root>

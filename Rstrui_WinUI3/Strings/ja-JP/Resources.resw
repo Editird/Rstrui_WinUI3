@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- ja-JP/Resources.resw -->
+	<data name="MainTitle" xml:space="preserve">
+	  <value>システムの復元</value>
+	</data>
+	<data name="SubTitle" xml:space="preserve">
+	  <value>システムの復元は、記録された復元ポイントを使用して最近のシステム変更を元に戻すことで、PCの問題を解決するのに役立ちます。ドキュメント、写真、その他の個人用ファイルには影響しません。</value>
+	</data>
+	<data name="Cancel" xml:space="preserve">
+	  <value>復元しない</value>
+	</data>
+	<data name="Continue" xml:space="preserve">
+	  <value>続行</value>
+	</data>
+</root>
