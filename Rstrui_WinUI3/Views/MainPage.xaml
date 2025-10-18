@@ -48,24 +48,23 @@
 					TextWrapping="Wrap">
 					<Run Text="{x:Bind LocalizedStrings.SubTitle}" />
 					<Hyperlink Click="Hyperlink_Click">
-						Learn more
+						<Run Text="{x:Bind LocalizedStrings.LearnMore}" />
 					</Hyperlink>
 				</TextBlock>
-
 			</StackPanel>
 
 			<!--  系統還原停用提示 InfoBar  -->
 			<InfoBar
 				x:Name="SystemRestoreDisabledInfoBar"
-				Title="System Restore has been turned off by your organization"
+				Title="{x:Bind LocalizedStrings.DisabledByOrgTitle}"
 				Grid.Row="1"
 				Margin="0,20,0,0"
 				IsClosable="False"
 				IsOpen="False"
-				Message="To turn on System Restore, contact your system administrator"
+				Message="{x:Bind LocalizedStrings.DisabledByOrgSubTitle}"
 				Severity="Error">
 				<InfoBar.ActionButton>
-					<Button Click="SystemProtection_Click" Content="System protection" />
+					<Button Click="SystemProtection_Click" Content="{x:Bind LocalizedStrings.SystemProtectBtn}" />
 				</InfoBar.ActionButton>
 			</InfoBar>
 

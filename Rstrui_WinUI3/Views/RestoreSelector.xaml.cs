@@ -1,63 +1,235 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+using System.Collections.ObjectModel;
+using System.Management;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Microsoft.UI.Xaml.Media.Animation;
-
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
+using System.Security.Principal;
+using System.Linq;
+using Microsoft.Windows.ApplicationModel.Resources;
 
 namespace Rstrui_WinUI3.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class RestoreSelector : Page
-    {
-        public LocalizedStrings LocalizedStrings { get; } = new();
-        public string CurrentTimeZone { get; set; }
+	public class RestorePointInfo
+	{
+		public string Name { get; set; }
+		public DateTime DateTime { get; set; }
+		public string DateTimeFormatted { get; set; }
+		public string Type { get; set; }
+		public uint SequenceNumber { get; set; }
+		public string Description { get; set; }
+		public uint RestorePointType { get; set; }
 
-        public RestoreSelector()
-        {
-            InitializeComponent();
-            CurrentTimeZone = GetCurrentTimeZone();
-            this.DataContext = this;
-        }
-
-        private string GetCurrentTimeZone()
-        {
-            try
-            {
-                var tz = TimeZoneInfo.Local;
-                return $"{tz.Id}";
-            }
-            catch
-            {
-                return "Unknown";
-            }
-        }
-
-        private void Back_Click(object sender, RoutedEventArgs e)
-        {
-            if (Frame != null && Frame.CanGoBack)
-            {
-                Frame.GoBack(new SlideNavigationTransitionInfo());
-            }
-        }
-
-        private void Next_Click(object sender, RoutedEventArgs e)
-        {
-			// Frame.Navigate(typeof(RestoreResult), null, new SlideNavigationTransitionInfo());
+		public RestorePointInfo()
+		{
+			Name = string.Empty;
+			DateTime = System.DateTime.MinValue;
+			DateTimeFormatted = string.Empty;
+			Type = string.Empty;
+			Description = string.Empty;
 		}
-    }
+	}
+
+	public sealed partial class RestoreSelector : Page
+	{
+		public LocalizedStrings LocalizedStrings { get; } = new();
+		public string CurrentTimeZone { get; set; }
+		private ObservableCollection<RestorePointInfo> RestorePoints { get; set; }
+
+		public RestoreSelector()
+		{
+			InitializeComponent();
+			CurrentTimeZone = GetCurrentTimeZone();
+			RestorePoints = new ObservableCollection<RestorePointInfo>();
+			this.DataContext = this;
+
+			Loaded += RestoreSelector_Loaded;
+		}
+
+		private void RestoreSelector_Loaded(object sender, RoutedEventArgs e)
+		{
+			// Load restore points (app already requires admin via manifest)
+			LoadRestorePoints();
+
+			// Setup selection changed event
+			RestorePointsListView.SelectionChanged += RestorePointsListView_SelectionChanged;
+		}
+
+		private bool IsAdministrator()
+		{
+			try
+			{
+				var identity = WindowsIdentity.GetCurrent();
+				var principal = new WindowsPrincipal(identity);
+				return principal.IsInRole(WindowsBuiltInRole.Administrator);
+			}
+			catch
+			{
+				return false;
+			}
+		}
+
+		private void LoadRestorePoints()
+		{
+			try
+			{
+				RestorePoints.Clear();
+
+				var scope = new ManagementScope("\\\\localhost\\root\\default");
+				scope.Connect();
+
+				var query = new ObjectQuery("SELECT * FROM SystemRestore");
+				var searcher = new ManagementObjectSearcher(scope, query);
+				var results = searcher.Get();
+
+				foreach (ManagementObject result in results)
+				{
+					try
+					{
+						var restorePoint = new RestorePointInfo();
+
+						// Get sequence number
+						if (result["SequenceNumber"] != null)
+							restorePoint.SequenceNumber = Convert.ToUInt32(result["SequenceNumber"]);
+
+						// Get description/name
+						if (result["Description"] != null)
+						{
+							restorePoint.Name = result["Description"].ToString() ?? string.Empty;
+							restorePoint.Description = result["Description"].ToString() ?? string.Empty;
+						}
+
+						// Get creation time
+						if (result["CreationTime"] != null)
+						{
+							string? creationTime = result["CreationTime"].ToString();
+							if (!string.IsNullOrEmpty(creationTime))
+							{
+								restorePoint.DateTime = ManagementDateTimeConverter.ToDateTime(creationTime);
+								restorePoint.DateTimeFormatted = restorePoint.DateTime.ToString("M/d/yyyy hh:mm:ss tt");
+							}
+						}
+
+						// Get restore point type
+						if (result["RestorePointType"] != null)
+						{
+							restorePoint.RestorePointType = Convert.ToUInt32(result["RestorePointType"]);
+							restorePoint.Type = GetRestorePointTypeName(restorePoint.RestorePointType);
+						}
+
+						RestorePoints.Add(restorePoint);
+					}
+					catch (Exception ex)
+					{
+						System.Diagnostics.Debug.WriteLine($"Error processing restore point: {ex.Message}");
+					}
+				}
+
+				// Sort by date descending (newest first)
+				var sortedPoints = RestorePoints.OrderByDescending(rp => rp.DateTime).ToList();
+				RestorePoints.Clear();
+				foreach (var point in sortedPoints)
+				{
+					RestorePoints.Add(point);
+				}
+
+				RestorePointsListView.ItemsSource = RestorePoints;
+			}
+			catch (Exception ex)
+			{
+				System.Diagnostics.Debug.WriteLine($"Error loading restore points: {ex.Message}");
+				ShowErrorDialog($"Failed to load restore points: {ex.Message}");
+			}
+		}
+
+		private string GetRestorePointTypeName(uint typeCode)
+		{
+			return typeCode switch
+			{
+				0 => "Application Install",
+				1 => "Application Uninstall",
+				10 => "Device Driver Install",
+				12 => "Modify Settings",
+				13 => "Cancelled Operation",
+				_ => "Manual"
+			};
+		}
+
+		private void RestorePointsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			NextButton.IsEnabled = RestorePointsListView.SelectedItem != null;
+		}
+
+		private async void ScanAffectedApps_Click(object sender, RoutedEventArgs e)
+		{
+			var dialog = new ContentDialog
+			{
+				Title = LocalizedStrings.AffectedAppsTitle,
+				Content = LocalizedStrings.AffectedAppsContent,
+				CloseButtonText = LocalizedStrings.OK,
+				XamlRoot = this.XamlRoot
+			};
+			await dialog.ShowAsync();
+		}
+
+		private async void ShowErrorDialog(string message)
+		{
+			var dialog = new ContentDialog
+			{
+				Title = "Error",
+				Content = message,
+				CloseButtonText = LocalizedStrings.OK,
+				XamlRoot = this.XamlRoot
+			};
+			await dialog.ShowAsync();
+		}
+
+		private string GetCurrentTimeZone()
+		{
+			try
+			{
+				var tz = TimeZoneInfo.Local;
+				return $"{tz.Id}";
+			}
+			catch
+			{
+				return "Unknown";
+			}
+		}
+
+		private void Back_Click(object sender, RoutedEventArgs e)
+		{
+			if (Frame != null && Frame.CanGoBack)
+			{
+				Frame.GoBack(new SlideNavigationTransitionInfo());
+			}
+		}
+
+		private async void Next_Click(object sender, RoutedEventArgs e)
+		{
+			if (RestorePointsListView.SelectedItem is RestorePointInfo selectedPoint)
+			{
+				var dialog = new ContentDialog
+				{
+					Title = "Restore Point Details",
+					Content = $"Name: {selectedPoint.Name}\n\n" +
+							  $"Date: {selectedPoint.DateTimeFormatted}\n\n" +
+							  $"Type: {selectedPoint.Type}\n\n" +
+							  $"Sequence Number: {selectedPoint.SequenceNumber}\n\n" +
+							  $"Description: {selectedPoint.Description}",
+					PrimaryButtonText = "Continue",
+					CloseButtonText = "Cancel",
+					XamlRoot = this.XamlRoot
+				};
+
+				var result = await dialog.ShowAsync();
+
+				if (result == ContentDialogResult.Primary)
+				{
+					// Proceed to next step - uncomment when ready
+					// Frame.Navigate(typeof(RestoreResult), selectedPoint, new SlideNavigationTransitionInfo());
+				}
+			}
+		}
+	}
 }

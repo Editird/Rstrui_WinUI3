@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- ja-JP/Resources.resw -->
+	<!-- ja-JP/Resources.resw (日文) -->
 	<data name="MainTitle" xml:space="preserve">
 	  <value>システムの復元</value>
 	</data>
 	<data name="SubTitle" xml:space="preserve">
 	  <value>システムの復元は、記録された復元ポイントを使用して最近のシステム変更を元に戻すことで、PCの問題を解決するのに役立ちます。ドキュメント、写真、その他の個人用ファイルには影響しません。</value>
+	</data>
+	<data name="LearnMore" xml:space="preserve">
+	  <value>詳細情報</value>
+	</data>
+	<data name="DisabledByOrgTitle" xml:space="preserve">
+	  <value>システムの復元は組織によって無効にされています</value>
+	</data>
+	<data name="DisabledByOrgSubTitle" xml:space="preserve">
+	  <value>システムの復元を有効にするには、システム管理者に連絡してください</value>
+	</data>
+	<data name="SystemProtectBtn" xml:space="preserve">
+	  <value>システムの保護</value>
+	</data>
+	<data name="RestoreSelectorTitle" xml:space="preserve">
+	  <value>復元ポイントの選択</value>
+	</data>
+	<data name="RestoreSelectorTimeZome" xml:space="preserve">
+	  <value>現在のタイムゾーン：</value>
+	</data>
+	<data name="AffectedAppsBtn" xml:space="preserve">
+	  <value>影響を受けるアプリをスキャン</value>
+	</data>
+	<data name="AffectedAppsTitle" xml:space="preserve">
+	  <value>影響を受けるアプリ</value>
+	</data>
+	<data name="AffectedAppsContent" xml:space="preserve">
+	  <value>影響を受けるアプリを自動的にリストできません
+インストールされているアプリと復元ポイントを手動で確認してください</value>
 	</data>
 	<data name="Cancel" xml:space="preserve">
 	  <value>復元しない</value>
@@ -14,6 +42,9 @@
 	  <value>戻る</value>
 	</data>
 	<data name="Next" xml:space="preserve">
-	  <value>次のステップ</value>
+	  <value>次へ</value>
+	</data>
+	<data name="OK" xml:space="preserve">
+	  <value>OK</value>
 	</data>
 </root>

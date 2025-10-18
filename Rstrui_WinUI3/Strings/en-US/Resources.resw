@@ -1,12 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
 	<!-- en-US/Resources.resw -->
+
+	<!-- Page: MainPage.xaml -->
 	<data name="MainTitle" xml:space="preserve">
 	  <value>System Restore</value>
 	</data>
 	<data name="SubTitle" xml:space="preserve">
 	  <value>System Restore helps to fix problems with your PC, with a restore point recorded to restore your recent system changes. It does not affect any of your documents, photos, or other personal files.</value>
 	</data>
+	<data name="LearnMore" xml:space="preserve">
+	  <value>Learn more</value>
+	</data>
+	<!-- Error Info Messages -->
+	<data name="DisabledByOrgTitle" xml:space="preserve">
+	  <value>System Restore has been turned off by your organization</value>
+	</data>
+	<data name="DisabledByOrgSubTitle" xml:space="preserve">
+	  <value>To turn on System Restore, contact your system administrator</value>
+	</data>
+	<data name="SystemProtectBtn" xml:space="preserve">
+	  <value>System protection</value>
+	</data>
+
+	<!-- Page: RestoreSelector.xaml -->
+	<data name="RestoreSelectorTitle" xml:space="preserve">
+	  <value>Select your Restore points</value>
+	</data>
+	<data name="RestoreSelectorTimeZome" xml:space="preserve">
+	  <value>Current time zone:</value>
+	</data>
+	<data name="AffectedAppsBtn" xml:space="preserve">
+	  <value>Scan affected apps</value>
+	</data>
+	<data name="AffectedAppsTitle" xml:space="preserve">
+	  <value>Affected apps</value>
+	</data>
+	<data name="AffectedAppsContent" xml:space="preserve">
+	  <value>Cannot automatically list affected apps
+Please check your installed apps and restore points manually</value>
+	</data>
+
 	<data name="Cancel" xml:space="preserve">
 	  <value>Don't Restore</value>
 	</data>
@@ -15,5 +49,8 @@
 	</data>
 	<data name="Next" xml:space="preserve">
 	  <value>Next</value>
+	</data>
+	<data name="OK" xml:space="preserve">
+	  <value>OK</value>
 	</data>
 </root>

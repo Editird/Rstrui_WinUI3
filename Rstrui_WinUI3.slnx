@@ -5,6 +5,7 @@
     <Platform Name="x86" />
   </Configurations>
   <Project Path="Rstrui_WinUI3/Rstrui_WinUI3.csproj">
+    <BuildType Solution="Release|x64" Project="Debug" />
     <Platform Solution="*|ARM64" Project="ARM64" />
     <Platform Solution="*|x64" Project="x64" />
     <Platform Solution="*|x86" Project="x86" />

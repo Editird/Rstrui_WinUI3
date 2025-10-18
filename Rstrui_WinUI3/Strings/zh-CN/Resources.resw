@@ -1,19 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- zh-CN/Resources.resw -->
+	<!-- zh-CN/Resources.resw (中國簡體中文) -->
 	<data name="MainTitle" xml:space="preserve">
 	  <value>系统还原</value>
 	</data>
 	<data name="SubTitle" xml:space="preserve">
 	  <value>系统还原有助于修复电脑问题，通过记录的还原点来恢复您最近的系统更改。这不会影响您的任何文档、照片或其他个人文件。</value>
 	</data>
+	<data name="LearnMore" xml:space="preserve">
+	  <value>了解更多</value>
+	</data>
+	<data name="DisabledByOrgTitle" xml:space="preserve">
+	  <value>系统还原已被您的组织关闭</value>
+	</data>
+	<data name="DisabledByOrgSubTitle" xml:space="preserve">
+	  <value>要开启系统还原，请联系您的系统管理员</value>
+	</data>
+	<data name="SystemProtectBtn" xml:space="preserve">
+	  <value>系统保护</value>
+	</data>
+	<data name="RestoreSelectorTitle" xml:space="preserve">
+	  <value>选择还原点</value>
+	</data>
+	<data name="RestoreSelectorTimeZome" xml:space="preserve">
+	  <value>当前时区：</value>
+	</data>
+	<data name="AffectedAppsBtn" xml:space="preserve">
+	  <value>扫描受影响的应用程序</value>
+	</data>
+	<data name="AffectedAppsTitle" xml:space="preserve">
+	  <value>受影响的应用程序</value>
+	</data>
+	<data name="AffectedAppsContent" xml:space="preserve">
+	  <value>无法自动列出受影响的应用程序
+请手动检查您已安装的应用程序和还原点</value>
+	</data>
 	<data name="Cancel" xml:space="preserve">
 	  <value>不还原</value>
 	</data>
 	<data name="Back" xml:space="preserve">
-	  <value>返回</value>
+	  <value>上一步</value>
 	</data>
 	<data name="Next" xml:space="preserve">
 	  <value>下一步</value>
+	</data>
+	<data name="OK" xml:space="preserve">
+	  <value>确定</value>
 	</data>
 </root>

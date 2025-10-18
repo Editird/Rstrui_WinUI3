@@ -52,7 +52,7 @@ namespace Rstrui_WinUI3.Views
 
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
-            var uri = "https://support.microsoft.com/en-us/windows/system-restore-a5ae3ed9-07c4-fd56-45ee-096777ecd14e";
+            var uri = "https://support.microsoft.com/windows/a5ae3ed9-07c4-fd56-45ee-096777ecd14e";
             var psi = new ProcessStartInfo
             {
                 FileName = uri,
