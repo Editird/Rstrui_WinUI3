@@ -38,12 +38,12 @@ namespace Rstrui_WinUI3
 			Close();
 		}
 
-		private void Continue_Click(object sender, RoutedEventArgs e)
+		private void Next_Click(object sender, RoutedEventArgs e)
 		{
 			// 繼續邏輯
 			ContentDialog dialog = new()
 			{
-				Title = LocalizedStrings.Continue,
+				Title = LocalizedStrings.Next,
 				Content = "Continuing...",
 				CloseButtonText = "OK",
 				XamlRoot = this.Content.XamlRoot

@@ -84,13 +84,13 @@
 					Content="{x:Bind LocalizedStrings.Cancel}"
 					Style="{StaticResource DefaultButtonStyle}" />
 
-				<!--  Continue 按鈕  -->
+				<!--  Next 按鈕  -->
 				<Button
 					Grid.Column="2"
 					MinWidth="140"
 					Padding="20,7"
-					Click="Continue_Click"
-					Content="{x:Bind LocalizedStrings.Continue}"
+					Click="Next_Click"
+					Content="{x:Bind LocalizedStrings.Next}"
 					Style="{StaticResource AccentButtonStyle}" />
 			</Grid>
 		</Grid>

@@ -10,7 +10,7 @@
 	<data name="Cancel" xml:space="preserve">
 	  <value>Don't Restore</value>
 	</data>
-	<data name="Continue" xml:space="preserve">
-	  <value>Continue</value>
+	<data name="Next" xml:space="preserve">
+	  <value>Next</value>
 	</data>
 </root>

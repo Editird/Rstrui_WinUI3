@@ -8,6 +8,6 @@ namespace Rstrui_WinUI3
 		public string MainTitle => resourceManager.MainResourceMap.GetValue("Resources/MainTitle").ValueAsString;
 		public string SubTitle => resourceManager.MainResourceMap.GetValue("Resources/SubTitle").ValueAsString;
 		public string Cancel => resourceManager.MainResourceMap.GetValue("Resources/Cancel").ValueAsString;
-		public string Continue => resourceManager.MainResourceMap.GetValue("Resources/Continue").ValueAsString;
+		public string Next => resourceManager.MainResourceMap.GetValue("Resources/Next").ValueAsString;
 	}
 }

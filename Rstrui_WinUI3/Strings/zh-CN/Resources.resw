@@ -10,7 +10,7 @@
 	<data name="Cancel" xml:space="preserve">
 	  <value>不还原</value>
 	</data>
-	<data name="Continue" xml:space="preserve">
-	  <value>继续</value>
+	<data name="Next" xml:space="preserve">
+	  <value>下一步</value>
 	</data>
 </root>
