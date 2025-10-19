@@ -1,50 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- ja-JP/Resources.resw (日文) -->
+	<!-- ja-JP/Resources.resw -->
+
+	<!-- Page: MainPage.xaml -->
 	<data name="MainTitle" xml:space="preserve">
-	  <value>システムの復元</value>
+		<value>システムの復元</value>
 	</data>
 	<data name="SubTitle" xml:space="preserve">
-	  <value>システムの復元は、記録された復元ポイントを使用して最近のシステム変更を元に戻すことで、PCの問題を解決するのに役立ちます。ドキュメント、写真、その他の個人用ファイルには影響しません。</value>
+		<value>システムの復元は、PC の問題を解決するために、復元ポイントを作成して最近のシステム変更を元に戻す機能です。文書、写真、その他の個人用ファイルには影響しません。</value>
 	</data>
 	<data name="LearnMore" xml:space="preserve">
-	  <value>詳細情報</value>
+		<value>詳細情報</value>
 	</data>
+	<!-- Error Info Messages -->
 	<data name="DisabledByOrgTitle" xml:space="preserve">
-	  <value>システムの復元は組織によって無効にされています</value>
+		<value>システムの復元は組織によって無効化されています</value>
 	</data>
 	<data name="DisabledByOrgSubTitle" xml:space="preserve">
-	  <value>システムの復元を有効にするには、システム管理者に連絡してください</value>
+		<value>システムの復元を有効にするには、システム管理者にお問い合わせください</value>
 	</data>
 	<data name="SystemProtectBtn" xml:space="preserve">
-	  <value>システムの保護</value>
+		<value>システム保護</value>
 	</data>
+
+	<!-- Page: RestoreSelector.xaml -->
 	<data name="RestoreSelectorTitle" xml:space="preserve">
-	  <value>復元ポイントの選択</value>
+		<value>復元ポイントの選択</value>
 	</data>
-	<data name="RestoreSelectorTimeZome" xml:space="preserve">
-	  <value>現在のタイムゾーン：</value>
+	<data name="RestoreSelectorTimeZone" xml:space="preserve">
+		<value>現在のタイム ゾーン:</value>
 	</data>
 	<data name="AffectedAppsBtn" xml:space="preserve">
-	  <value>影響を受けるアプリをスキャン</value>
+		<value>影響を受けるプログラムのスキャン</value>
 	</data>
 	<data name="AffectedAppsTitle" xml:space="preserve">
-	  <value>影響を受けるアプリ</value>
+		<value>影響を受けるプログラム</value>
 	</data>
 	<data name="AffectedAppsContent" xml:space="preserve">
-	  <value>影響を受けるアプリを自動的にリストできません
-インストールされているアプリと復元ポイントを手動で確認してください</value>
+		<value>影響を受けるプログラムを自動的に一覧表示できません。
+手動でインストールされたプログラムと復元ポイントを確認してください。</value>
 	</data>
+
+	<!-- RestoreSelector.xaml.cs -->
+	<data name="RestoreSelectorErrorTitle" xml:space="preserve">
+		<value>エラー</value>
+	</data>
+	<data name="RestoreSelectorTimeZoneUnknown" xml:space="preserve">
+		<value>不明</value>
+	</data>
+	<data name="RestorePointType_ApplicationInstall" xml:space="preserve">
+		<value>プログラムのインストール</value>
+	</data>
+	<data name="RestorePointType_ApplicationUninstall" xml:space="preserve">
+		<value>プログラムのアンインストール</value>
+	</data>
+	<data name="RestorePointType_DeviceDriverInstall" xml:space="preserve">
+		<value>デバイス ドライバーのインストール</value>
+	</data>
+	<data name="RestorePointType_ModifySettings" xml:space="preserve">
+		<value>設定の変更</value>
+	</data>
+	<data name="RestorePointType_CancelledOperation" xml:space="preserve">
+		<value>操作のキャンセル</value>
+	</data>
+	<data name="RestorePointType_Manual" xml:space="preserve">
+		<value>手動作成</value>
+	</data>
+
+	<!-- RestoreResult.xaml/cs -->
+	<data name="RestoreResultTitle" xml:space="preserve">
+		<value>概要</value>
+	</data>
+	<data name="RestoreResultSubtitle" xml:space="preserve">
+		<value>PC は、以下の説明フィールドでのイベントの前の状態に復元されます</value>
+	</data>
+	<data name="RestoreResultAttentionTitle" xml:space="preserve">
+		<value>注意</value>
+	</data>
+	<data name="RestoreResultAttention" xml:space="preserve">
+		<value>最近 Windows パスワードを変更した場合は、パスワード リセット ディスクを作成することをお勧めします。これらの変更を適用するには、PC を再起動する必要があります。開始する前に、すべての開いているファイルを保存し、すべてのアプリを閉じてください。</value>
+	</data>
+	<data name="RestoreResultName" xml:space="preserve">
+		<value>名前:</value>
+	</data>
+	<data name="RestoreResultDate" xml:space="preserve">
+		<value>日時:</value>
+	</data>
+	<data name="RestoreResultType" xml:space="preserve">
+		<value>種類:</value>
+	</data>
+	<data name="RestoreResultRestore" xml:space="preserve">
+		<value>復元の実行</value>
+	</data>
+	<data name="RestoreResultErrorTitle" xml:space="preserve">
+		<value>エラー</value>
+	</data>
+	<data name="RestoreResultErrorNoPoint" xml:space="preserve">
+		<value>復元ポイントが選択されていません</value>
+	</data>
+	<data name="RestoreResultConfirmTitle" xml:space="preserve">
+		<value>システムの復元</value>
+	</data>
+	<data name="RestoreResultConfirmContent" xml:space="preserve">
+		<value>この復元ポイントにシステムを復元しますか？&#x0a;システムは復元プロセスを完了するために再起動します。</value>
+	</data>
+	<data name="RestoreResultConfirmBtn" xml:space="preserve">
+		<value>続行</value>
+	</data>
+	<data name="RestoreResultCancelBtn" xml:space="preserve">
+		<value>キャンセル</value>
+	</data>
+	<data name="RestoreResultStartedTitle" xml:space="preserve">
+		<value>システムの復元を開始しました</value>
+	</data>
+	<data name="RestoreResultStartedContent" xml:space="preserve">
+		<value>システムの復元プロセスが開始されました。&#x0a;システムは復元を完了するために自動的に再起動します。&#x0a;&#x0a;すべての作業内容を保存してください。</value>
+	</data>
+	<data name="RestoreResultRestartNow" xml:space="preserve">
+		<value>今すぐ再起動</value>
+	</data>
+	<data name="RestoreResultRestartLater" xml:space="preserve">
+		<value>後で再起動</value>
+	</data>
+	<data name="RestoreResultFailedTitle" xml:space="preserve">
+		<value>システムの復元に失敗しました</value>
+	</data>
+	<data name="RestoreResultPermissionTitle" xml:space="preserve">
+		<value>権限が不足しています</value>
+	</data>
+	<data name="RestoreResultPermissionContent" xml:space="preserve">
+		<value>管理者権限が必要です。&#x0a;このアプリケーションを管理者として実行してください。</value>
+	</data>
+	<data name="RestoreResultUnknownErrorTitle" xml:space="preserve">
+		<value>エラーが発生しました</value>
+	</data>
+	<data name="RestoreResultUnknownErrorContent" xml:space="preserve">
+		<value>システムの復元中にエラーが発生しました: {0}</value>
+	</data>
+
 	<data name="Cancel" xml:space="preserve">
-	  <value>復元しない</value>
+		<value>キャンセル</value>
 	</data>
 	<data name="Back" xml:space="preserve">
-	  <value>戻る</value>
+		<value>戻る</value>
 	</data>
 	<data name="Next" xml:space="preserve">
-	  <value>次へ</value>
+		<value>次へ</value>
 	</data>
 	<data name="OK" xml:space="preserve">
-	  <value>OK</value>
+		<value>OK</value>
 	</data>
 </root>

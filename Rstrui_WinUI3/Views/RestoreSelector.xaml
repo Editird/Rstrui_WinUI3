@@ -10,9 +10,7 @@
 	mc:Ignorable="d">
 
 	<Grid>
-
 		<!--  自訂標題列  -->
-
 		<Grid
 			x:Name="AppTitleBar"
 			Height="32"
@@ -30,21 +28,15 @@
 		</Grid>
 
 		<!--  主內容  -->
-
 		<Grid Margin="0,24,0,0" Padding="40,30,40,0">
 
 			<Grid.RowDefinitions>
-
 				<RowDefinition Height="Auto" />
-
 				<RowDefinition Height="*" />
-
 				<RowDefinition Height="Auto" />
-
 			</Grid.RowDefinitions>
 
 			<!--  標題區域  -->
-
 			<StackPanel Grid.Row="0" Spacing="8">
 
 				<TextBlock
@@ -59,7 +51,7 @@
 						FontSize="14"
 						Foreground="{ThemeResource TextFillColorSecondaryBrush}"
 						LineHeight="20"
-						Text="{x:Bind LocalizedStrings.RestoreSelectorTimeZome}"
+						Text="{x:Bind LocalizedStrings.RestoreSelectorTimeZone}"
 						TextWrapping="Wrap" />
 
 					<TextBlock
@@ -79,11 +71,8 @@
 			<Grid Grid.Row="1" Margin="0,20,0,0">
 
 				<Grid.RowDefinitions>
-
 					<RowDefinition Height="*" />
-
 					<RowDefinition Height="Auto" />
-
 				</Grid.RowDefinitions>
 
 				<!--  還原點列表  -->
@@ -91,7 +80,7 @@
 				<Border
 					Grid.Row="0"
 					BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-					BorderThickness="1"
+					BorderThickness="0"
 					CornerRadius="8">
 
 					<ListView
@@ -103,31 +92,20 @@
 						<ListView.ItemContainerStyle>
 
 							<Style TargetType="ListViewItem">
-
 								<Setter Property="HorizontalContentAlignment" Value="Stretch" />
-
 								<Setter Property="Padding" Value="16,12" />
-
 								<Setter Property="Margin" Value="0" />
-
 							</Style>
 
 						</ListView.ItemContainerStyle>
 
 						<ListView.ItemTemplate>
-
 							<DataTemplate x:DataType="local:RestorePointInfo">
-
 								<Grid>
-
 									<Grid.ColumnDefinitions>
-
 										<ColumnDefinition Width="200" />
-
 										<ColumnDefinition Width="200" />
-
 										<ColumnDefinition Width="200" />
-
 									</Grid.ColumnDefinitions>
 
 									<TextBlock
@@ -154,19 +132,13 @@
 										Foreground="{ThemeResource TextFillColorSecondaryBrush}"
 										Text="{x:Bind Type}"
 										TextTrimming="CharacterEllipsis" />
-
 								</Grid>
-
 							</DataTemplate>
-
 						</ListView.ItemTemplate>
-
 					</ListView>
-
 				</Border>
 
-				<!--  Scan affected apps 超連結  -->
-
+				<!--  Scan affected apps Hyperlink Button  -->
 				<HyperlinkButton
 					Grid.Row="1"
 					Margin="0,16,0,0"
@@ -176,23 +148,18 @@
 			</Grid>
 
 			<!--  按鈕區塊  -->
-
 			<Grid
 				Grid.Row="2"
-				Margin="-30,20,-40,0"
+				Margin="-40,20,-40,0"
 				Padding="30,16,16,16"
 				Background="{ThemeResource LayerFillColorDefaultBrush}"
 				BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
 				BorderThickness="0,1,0,0">
 
 				<Grid.ColumnDefinitions>
-
 					<ColumnDefinition Width="*" />
-
 					<ColumnDefinition Width="Auto" />
-
 					<ColumnDefinition Width="Auto" />
-
 				</Grid.ColumnDefinitions>
 
 				<!--  左側空白區域  -->
@@ -221,11 +188,7 @@
 					Content="{x:Bind LocalizedStrings.Next}"
 					IsEnabled="False"
 					Style="{StaticResource AccentButtonStyle}" />
-
 			</Grid>
-
 		</Grid>
-
 	</Grid>
-
 </Page>

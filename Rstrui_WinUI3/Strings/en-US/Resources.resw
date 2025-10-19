@@ -27,7 +27,7 @@
 	<data name="RestoreSelectorTitle" xml:space="preserve">
 	  <value>Select your Restore points</value>
 	</data>
-	<data name="RestoreSelectorTimeZome" xml:space="preserve">
+	<data name="RestoreSelectorTimeZone" xml:space="preserve">
 	  <value>Current time zone:</value>
 	</data>
 	<data name="AffectedAppsBtn" xml:space="preserve">
@@ -39,6 +39,103 @@
 	<data name="AffectedAppsContent" xml:space="preserve">
 	  <value>Cannot automatically list affected apps
 Please check your installed apps and restore points manually</value>
+	</data>
+
+	<!-- RestoreSelector.xaml.cs -->
+	<data name="RestoreSelectorErrorTitle" xml:space="preserve">
+		<value>Error</value>
+	</data>
+	<data name="RestoreSelectorTimeZoneUnknown" xml:space="preserve">
+		<value>Unknown</value>
+	</data>
+	<data name="RestorePointType_ApplicationInstall" xml:space="preserve">
+		<value>Application Install</value>
+	</data>
+	<data name="RestorePointType_ApplicationUninstall" xml:space="preserve">
+		<value>Application Uninstall</value>
+	</data>
+	<data name="RestorePointType_DeviceDriverInstall" xml:space="preserve">
+		<value>Device Driver Install</value>
+	</data>
+	<data name="RestorePointType_ModifySettings" xml:space="preserve">
+		<value>Modify Settings</value>
+	</data>
+	<data name="RestorePointType_CancelledOperation" xml:space="preserve">
+		<value>Cancelled Operation</value>
+	</data>
+	<data name="RestorePointType_Manual" xml:space="preserve">
+		<value>Manual</value>
+	</data>
+
+	<!-- RestoreResult.xaml/cs -->
+	<data name="RestoreResultTitle" xml:space="preserve">
+		<value>Summary</value>
+	</data>
+	<data name="RestoreResultSubtitle" xml:space="preserve">
+		<value>Your PC will be restored to the state it was in before the event in the Description field below</value>
+	</data>
+	<data name="RestoreResultAttentionTitle" xml:space="preserve">
+		<value>Attention</value>
+	</data>
+	<data name="RestoreResultAttention" xml:space="preserve">
+		<value>If you have changed Windows password recently, we recommend that you create a password reset disk. Your PC needs to restart to apply these changes. Before you begin, save any open files and close all apps.</value>
+	</data>
+	<data name="RestoreResultName" xml:space="preserve">
+		<value>Name:</value>
+	</data>
+	<data name="RestoreResultDate" xml:space="preserve">
+		<value>Date:</value>
+	</data>
+	<data name="RestoreResultType" xml:space="preserve">
+		<value>Type:</value>
+	</data>
+	<data name="RestoreResultRestore" xml:space="preserve">
+		<value>Restore</value>
+	</data>
+	<data name="RestoreResultErrorTitle" xml:space="preserve">
+		<value>Error</value>
+	</data>
+	<data name="RestoreResultErrorNoPoint" xml:space="preserve">
+		<value>No restore point selected</value>
+	</data>
+	<data name="RestoreResultConfirmTitle" xml:space="preserve">
+		<value>System Restore</value>
+	</data>
+	<data name="RestoreResultConfirmContent" xml:space="preserve">
+		<value>Are you sure you want to restore the system to this restore point?&#x0a;The system will restart to complete the restore process.</value>
+	</data>
+	<data name="RestoreResultConfirmBtn" xml:space="preserve">
+		<value>Confirm</value>
+	</data>
+	<data name="RestoreResultCancelBtn" xml:space="preserve">
+		<value>Cancel</value>
+	</data>
+	<data name="RestoreResultStartedTitle" xml:space="preserve">
+		<value>System Restore Started</value>
+	</data>
+	<data name="RestoreResultStartedContent" xml:space="preserve">
+		<value>The system restore process has started.&#x0a;The system will automatically restart to complete the restore.&#x0a;&#x0a;Please save all unsaved work.</value>
+	</data>
+	<data name="RestoreResultRestartNow" xml:space="preserve">
+		<value>Restart Now</value>
+	</data>
+	<data name="RestoreResultRestartLater" xml:space="preserve">
+		<value>Restart Later</value>
+	</data>
+	<data name="RestoreResultFailedTitle" xml:space="preserve">
+		<value>System Restore Failed</value>
+	</data>
+	<data name="RestoreResultPermissionTitle" xml:space="preserve">
+		<value>Insufficient Permissions</value>
+	</data>
+	<data name="RestoreResultPermissionContent" xml:space="preserve">
+		<value>Administrator privileges are required to perform system restore.&#x0a;Please run this application as an administrator.</value>
+	</data>
+	<data name="RestoreResultUnknownErrorTitle" xml:space="preserve">
+		<value>Error Occurred</value>
+	</data>
+	<data name="RestoreResultUnknownErrorContent" xml:space="preserve">
+		<value>An error occurred during system restore: {0}</value>
 	</data>
 
 	<data name="Cancel" xml:space="preserve">

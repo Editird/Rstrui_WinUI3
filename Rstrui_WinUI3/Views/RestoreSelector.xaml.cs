@@ -146,12 +146,12 @@ namespace Rstrui_WinUI3.Views
 		{
 			return typeCode switch
 			{
-				0 => "Application Install",
-				1 => "Application Uninstall",
-				10 => "Device Driver Install",
-				12 => "Modify Settings",
-				13 => "Cancelled Operation",
-				_ => "Manual"
+				0 => LocalizedStrings.RestorePointType_ApplicationInstall,
+				1 => LocalizedStrings.RestorePointType_ApplicationUninstall,
+				10 => LocalizedStrings.RestorePointType_DeviceDriverInstall,
+				12 => LocalizedStrings.RestorePointType_ModifySettings,
+				13 => LocalizedStrings.RestorePointType_CancelledOperation,
+				_ => LocalizedStrings.RestorePointType_Manual
 			};
 		}
 
@@ -162,6 +162,8 @@ namespace Rstrui_WinUI3.Views
 
 		private async void ScanAffectedApps_Click(object sender, RoutedEventArgs e)
 		{
+			// 因為微軟沒開放 API 讓我們去掃描還原點會影響哪些應用程式 or 驅動...
+			// 所以這邊就只能讓使用者自己去檢查囉
 			var dialog = new ContentDialog
 			{
 				Title = LocalizedStrings.AffectedAppsTitle,
@@ -176,7 +178,7 @@ namespace Rstrui_WinUI3.Views
 		{
 			var dialog = new ContentDialog
 			{
-				Title = "Error",
+				Title = LocalizedStrings.RestoreSelectorErrorTitle,
 				Content = message,
 				CloseButtonText = LocalizedStrings.OK,
 				XamlRoot = this.XamlRoot
@@ -193,7 +195,7 @@ namespace Rstrui_WinUI3.Views
 			}
 			catch
 			{
-				return "Unknown";
+				return LocalizedStrings.RestoreSelectorTimeZoneUnknown;
 			}
 		}
 

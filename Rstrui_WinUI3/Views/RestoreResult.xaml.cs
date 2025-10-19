@@ -20,7 +20,8 @@ namespace Rstrui_WinUI3.Views
         {
             InitializeComponent();
             this.DataContext = this;
-        }
+            RestoreResultAttention.IsOpen = true;
+		}
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -28,7 +29,7 @@ namespace Rstrui_WinUI3.Views
             if (e.Parameter is RestorePointInfo restorePoint)
             {
                 RestorePoint = restorePoint;
-            }
+			}
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -39,25 +40,21 @@ namespace Rstrui_WinUI3.Views
             }
         }
 
+
         private async void Restore_Click(object sender, RoutedEventArgs e)
         {
             if (RestorePoint == null)
             {
-                await ShowErrorDialog("錯誤", "未選擇還原點");
+                await ShowErrorDialog(LocalizedStrings.RestoreResultErrorTitle, LocalizedStrings.RestoreResultErrorNoPoint);
                 return;
             }
 
-            // 確認對話框
             ContentDialog confirmDialog = new ContentDialog
             {
-                Title = "確認系統還原",
-                Content = $"您確定要將系統還原到以下還原點嗎？\n\n" +
-                         $"名稱：{RestorePoint.Description}\n" +
-                         $"序號：{RestorePoint.SequenceNumber}\n" +
-                         $"建立時間：{RestorePoint.DateTime}\n\n" +
-                         $"警告：系統將會重新啟動以完成還原程序。",
-                PrimaryButtonText = "確定",
-                CloseButtonText = "取消",
+                Title = LocalizedStrings.RestoreResultConfirmTitle,
+                Content = string.Format(LocalizedStrings.RestoreResultConfirmContent),
+                PrimaryButtonText = LocalizedStrings.RestoreResultConfirmBtn,
+                CloseButtonText = LocalizedStrings.RestoreResultCancelBtn,
                 DefaultButton = ContentDialogButton.Close,
                 XamlRoot = this.XamlRoot
             };
@@ -77,10 +74,10 @@ namespace Rstrui_WinUI3.Views
                 {
                     ContentDialog successDialog = new ContentDialog
                     {
-                        Title = "系統還原已啟動",
-                        Content = "系統還原程序已經啟動。\n系統將會自動重新啟動以完成還原。\n\n請儲存所有未儲存的工作。",
-                        PrimaryButtonText = "立即重新啟動",
-                        CloseButtonText = "稍後重新啟動",
+                        Title = LocalizedStrings.RestoreResultStartedTitle,
+                        Content = LocalizedStrings.RestoreResultStartedContent,
+                        PrimaryButtonText = LocalizedStrings.RestoreResultRestartNow,
+                        CloseButtonText = LocalizedStrings.RestoreResultRestartLater,
                         DefaultButton = ContentDialogButton.Primary,
                         XamlRoot = this.XamlRoot
                     };
@@ -89,22 +86,21 @@ namespace Rstrui_WinUI3.Views
                     
                     if (dialogResult == ContentDialogResult.Primary)
                     {
-                        // 立即重新啟動
                         SystemRestoreHelper.RebootSystem();
                     }
                 }
                 else
                 {
-                    await ShowErrorDialog("系統還原失敗", restoreResult.ErrorMessage);
+                    await ShowErrorDialog(LocalizedStrings.RestoreResultFailedTitle, restoreResult.ErrorMessage);
                 }
             }
             catch (UnauthorizedAccessException)
             {
-                await ShowErrorDialog("權限不足", "執行系統還原需要管理員權限。\n請以管理員身分執行此應用程式。");
+                await ShowErrorDialog(LocalizedStrings.RestoreResultPermissionTitle, LocalizedStrings.RestoreResultPermissionContent);
             }
             catch (Exception ex)
             {
-                await ShowErrorDialog("發生錯誤", $"系統還原時發生錯誤：\n{ex.Message}");
+                await ShowErrorDialog(LocalizedStrings.RestoreResultUnknownErrorTitle, string.Format(LocalizedStrings.RestoreResultUnknownErrorContent, ex.Message));
             }
         }
 
@@ -114,7 +110,7 @@ namespace Rstrui_WinUI3.Views
             {
                 Title = title,
                 Content = message,
-                CloseButtonText = "確定",
+                CloseButtonText = LocalizedStrings.OK,
                 XamlRoot = this.XamlRoot
             };
             await errorDialog.ShowAsync();
@@ -211,10 +207,10 @@ namespace Rstrui_WinUI3.Views
                     {
                         string errorMessage = returnValue switch
                         {
-                            1 => "系統還原服務已停用",
-                            2 => "找不到指定的還原點",
-                            3 => "系統還原初始化失敗",
-                            _ => $"系統還原失敗，錯誤碼：{returnValue}"
+                            1 => "System Restore service is disabled",
+                            2 => "The specified restore point was not found",
+                            3 => "System Restore initialization failed",
+                            _ => $"System Restore failed, error code: {returnValue}"
                         };
 
                         return new RestoreResult 
@@ -229,7 +225,7 @@ namespace Rstrui_WinUI3.Views
                     return new RestoreResult
                     {
                         Success = false,
-                        ErrorMessage = "需要管理員權限才能執行系統還原"
+                        ErrorMessage = "Administrator permission is required to run System Restore"
                     };
                 }
                 catch (ManagementException ex)
@@ -237,7 +233,7 @@ namespace Rstrui_WinUI3.Views
                     return new RestoreResult
                     {
                         Success = false,
-                        ErrorMessage = $"WMI 錯誤：{ex.Message}"
+                        ErrorMessage = $"WMI Error：{ex.Message}"
                     };
                 }
                 catch (Exception ex)
@@ -245,7 +241,7 @@ namespace Rstrui_WinUI3.Views
                     return new RestoreResult
                     {
                         Success = false,
-                        ErrorMessage = $"未預期的錯誤：{ex.Message}"
+                        ErrorMessage = $"Unexpected error occurred: {ex.Message}"
                     };
                 }
             });
@@ -260,7 +256,6 @@ namespace Rstrui_WinUI3.Views
             {
                 // 初始化 COM 安全性（根據官方文檔要求）
                 // 注意：在實際應用中，可能需要在應用程式啟動時就進行 COM 初始化
-
                 RESTOREPOINTINFO restorePointInfo = new RESTOREPOINTINFO
                 {
                     dwEventType = BEGIN_SYSTEM_CHANGE,
@@ -277,7 +272,7 @@ namespace Rstrui_WinUI3.Views
                     const int ERROR_SERVICE_DISABLED = 1058;
                     if (status.nStatus == ERROR_SERVICE_DISABLED)
                     {
-                        throw new InvalidOperationException("系統還原服務已停用");
+                        throw new InvalidOperationException("System Restore Service is disabled");
                     }
                     return false;
                 }
@@ -312,14 +307,13 @@ namespace Rstrui_WinUI3.Views
 
                 foreach (ManagementObject os in searcher.Get())
                 {
-                    // 使用 Reboot 方法
+                    // 取得重新啟動方法的參數
                     ManagementBaseObject inParams = os.GetMethodParameters("Reboot");
                     os.InvokeMethod("Reboot", inParams, null);
                 }
             }
             catch
             {
-                // 備用方案：使用 shutdown 命令
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
                 {
                     FileName = "shutdown",

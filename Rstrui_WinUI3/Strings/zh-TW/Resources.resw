@@ -1,45 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- zh-TW/Resources.resw (台灣正體中文) -->
+	<!-- zh-TW/Resources.resw -->
+
+	<!-- Page: MainPage.xaml -->
 	<data name="MainTitle" xml:space="preserve">
 	  <value>系統還原</value>
 	</data>
 	<data name="SubTitle" xml:space="preserve">
-	  <value>系統還原有助於修復電腦問題，透過記錄的還原點來復原您最近的系統變更。這不會影響您的任何文件、照片或其他個人檔案。</value>
+	  <value>系統還原幫助修復您的電腦問題，記錄還原點以恢復您最近的系統更改。它不會影響您的文檔、照片或其他個人文件。</value>
 	</data>
 	<data name="LearnMore" xml:space="preserve">
-	  <value>深入了解</value>
+	  <value>了解更多</value>
 	</data>
+	<!-- Error Info Messages -->
 	<data name="DisabledByOrgTitle" xml:space="preserve">
-	  <value>系統還原已被您的組織關閉</value>
+	  <value>系統還原已被您的組織禁用</value>
 	</data>
 	<data name="DisabledByOrgSubTitle" xml:space="preserve">
-	  <value>若要開啟系統還原，請聯繫您的系統管理員</value>
+	  <value>要啟用系統還原，請聯繫您的系統管理員</value>
 	</data>
 	<data name="SystemProtectBtn" xml:space="preserve">
 	  <value>系統保護</value>
 	</data>
+
+	<!-- Page: RestoreSelector.xaml -->
 	<data name="RestoreSelectorTitle" xml:space="preserve">
 	  <value>選擇還原點</value>
 	</data>
-	<data name="RestoreSelectorTimeZome" xml:space="preserve">
-	  <value>目前時區：</value>
+	<data name="RestoreSelectorTimeZone" xml:space="preserve">
+	  <value>當前時區：</value>
 	</data>
 	<data name="AffectedAppsBtn" xml:space="preserve">
-	  <value>掃描受影響的應用程式</value>
+	  <value>掃描受影響的應用</value>
 	</data>
 	<data name="AffectedAppsTitle" xml:space="preserve">
-	  <value>受影響的應用程式</value>
+	  <value>受影響的應用</value>
 	</data>
 	<data name="AffectedAppsContent" xml:space="preserve">
-	  <value>無法自動列出受影響的應用程式
-請手動檢查您已安裝的應用程式和還原點</value>
+	  <value>無法自動列出受影響的應用
+請手動檢查您的已安裝應用和還原點</value>
 	</data>
+
+	<!-- RestoreSelector.xaml.cs -->
+	<data name="RestoreSelectorErrorTitle" xml:space="preserve">
+		<value>錯誤</value>
+	</data>
+	<data name="RestoreSelectorTimeZoneUnknown" xml:space="preserve">
+		<value>未知</value>
+	</data>
+	<data name="RestorePointType_ApplicationInstall" xml:space="preserve">
+		<value>應用程式安裝</value>
+	</data>
+	<data name="RestorePointType_ApplicationUninstall" xml:space="preserve">
+		<value>應用程式卸載</value>
+	</data>
+	<data name="RestorePointType_DeviceDriverInstall" xml:space="preserve">
+		<value>設備驅動程式安裝</value>
+	</data>
+	<data name="RestorePointType_ModifySettings" xml:space="preserve">
+		<value>修改設定</value>
+	</data>
+	<data name="RestorePointType_CancelledOperation" xml:space="preserve">
+		<value>取消的操作</value>
+	</data>
+	<data name="RestorePointType_Manual" xml:space="preserve">
+		<value>手動</value>
+	</data>
+
+	<!-- RestoreResult.xaml/cs -->
+	<data name="RestoreResultTitle" xml:space="preserve">
+		<value>摘要</value>
+	</data>
+	<data name="RestoreResultSubtitle" xml:space="preserve">
+		<value>您的電腦將恢復到以下描述字段中事件發生之前的狀態</value>
+	</data>
+	<data name="RestoreResultAttentionTitle" xml:space="preserve">
+		<value>注意</value>
+	</data>
+	<data name="RestoreResultAttention" xml:space="preserve">
+		<value>如果您最近更改了 Windows 密碼，我們建議您創建一個密碼重置磁碟。您的電腦需要重新啟動以應用這些更改。在開始之前，請保存所有打開的文件並關閉所有應用。</value>
+	</data>
+	<data name="RestoreResultName" xml:space="preserve">
+		<value>名稱：</value>
+	</data>
+	<data name="RestoreResultDate" xml:space="preserve">
+		<value>日期：</value>
+	</data>
+	<data name="RestoreResultType" xml:space="preserve">
+		<value>類型：</value>
+	</data>
+	<data name="RestoreResultRestore" xml:space="preserve">
+		<value>還原</value>
+	</data>
+	<data name="RestoreResultErrorTitle" xml:space="preserve">
+		<value>錯誤</value>
+	</data>
+	<data name="RestoreResultErrorNoPoint" xml:space="preserve">
+		<value>未選擇還原點</value>
+	</data>
+	<data name="RestoreResultConfirmTitle" xml:space="preserve">
+		<value>系統還原</value>
+	</data>
+	<data name="RestoreResultConfirmContent" xml:space="preserve">
+		<value>您確定要將系統還原到此還原點嗎？&#x0a;系統將重新啟動以完成還原過程。</value>
+	</data>
+	<data name="RestoreResultConfirmBtn" xml:space="preserve">
+		<value>確認</value>
+	</data>
+	<data name="RestoreResultCancelBtn" xml:space="preserve">
+		<value>取消</value>
+	</data>
+	<data name="RestoreResultStartedTitle" xml:space="preserve">
+		<value>系統還原已啟動</value>
+	</data>
+	<data name="RestoreResultStartedContent" xml:space="preserve">
+		<value>系統還原過程已啟動。&#x0a;系統將自動重新啟動以完成還原。&#x0a;&#x0a;請保存所有未保存的工作。</value>
+	</data>
+	<data name="RestoreResultRestartNow" xml:space="preserve">
+		<value>立即重啟</value>
+	</data>
+	<data name="RestoreResultRestartLater" xml:space="preserve">
+		<value>稍後重啟</value>
+	</data>
+	<data name="RestoreResultFailedTitle" xml:space="preserve">
+		<value>系統還原失敗</value>
+	</data>
+	<data name="RestoreResultPermissionTitle" xml:space="preserve">
+		<value>權限不足</value>
+	</data>
+	<data name="RestoreResultPermissionContent" xml:space="preserve">
+		<value>需要管理員權限才能執行系統還原。&#x0a;請以管理員身份運行此應用程序。</value>
+	</data>
+	<data name="RestoreResultUnknownErrorTitle" xml:space="preserve">
+		<value>發生錯誤</value>
+	</data>
+	<data name="RestoreResultUnknownErrorContent" xml:space="preserve">
+		<value>系統還原期間發生錯誤：{0}</value>
+	</data>
+
 	<data name="Cancel" xml:space="preserve">
 	  <value>不還原</value>
 	</data>
 	<data name="Back" xml:space="preserve">
-	  <value>上一步</value>
+	  <value>返回</value>
 	</data>
 	<data name="Next" xml:space="preserve">
 	  <value>下一步</value>
@@ -47,5 +150,4 @@
 	<data name="OK" xml:space="preserve">
 	  <value>確定</value>
 	</data>
-
 </root>

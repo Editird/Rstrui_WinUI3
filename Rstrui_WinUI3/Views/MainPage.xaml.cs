@@ -1,4 +1,3 @@
-// filepath: c:\Users\hung5\Desktop\Lab\vsproj\Rstrui_WinUI3\Rstrui_WinUI3\Views\MainPage.xaml.cs
 using System.Diagnostics;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -25,28 +24,21 @@ namespace Rstrui_WinUI3.Views
         {
             try
             {
-                // 檢查註冊表路徑
                 using var key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows NT\SystemRestore");
                 
                 if (key != null)
                 {
                     var disableSR = key.GetValue("DisableSR");
-                    
-                    // 如果 DisableSR 值為 1，表示系統還原已被停用
                     if (disableSR != null && disableSR is int value && value == 1)
                     {
-                        // 顯示 InfoBar
                         SystemRestoreDisabledInfoBar.IsOpen = true;
-                        
-                        // 停用 Next 按鈕
                         NextButton.IsEnabled = false;
                     }
                 }
             }
             catch (System.Exception ex)
             {
-                // 如果無法讀取註冊表（例如權限不足），記錄錯誤但不影響程式運作
-                Debug.WriteLine($"無法檢查系統還原狀態: {ex.Message}");
+                Debug.WriteLine($"Cannot check System Restore status: {ex.Message}");
             }
         }
 
@@ -77,7 +69,7 @@ namespace Rstrui_WinUI3.Views
             }
             catch (System.Exception ex)
             {
-                Debug.WriteLine($"無法啟動系統保護程式: {ex.Message}");
+                Debug.WriteLine($"Cannot launch System Protection: {ex.Message}");
             }
         }
 
