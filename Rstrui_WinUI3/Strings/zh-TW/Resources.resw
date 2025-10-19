@@ -7,7 +7,7 @@
 	  <value>系統還原</value>
 	</data>
 	<data name="SubTitle" xml:space="preserve">
-	  <value>系統還原幫助修復您的電腦問題，記錄還原點以恢復您最近的系統更改。它不會影響您的文檔、照片或其他個人文件。</value>
+	  <value>系統還原有助於修復您的電腦問題，記錄還原點以恢復您最近的系統更改。它不會影響您的文件、照片或其他個人檔案。</value>
 	</data>
 	<data name="LearnMore" xml:space="preserve">
 	  <value>了解更多</value>
@@ -31,14 +31,14 @@
 	  <value>當前時區：</value>
 	</data>
 	<data name="AffectedAppsBtn" xml:space="preserve">
-	  <value>掃描受影響的應用</value>
+	  <value>掃描受影響的應用程式</value>
 	</data>
 	<data name="AffectedAppsTitle" xml:space="preserve">
-	  <value>受影響的應用</value>
+	  <value>受影響的應用程式</value>
 	</data>
 	<data name="AffectedAppsContent" xml:space="preserve">
-	  <value>無法自動列出受影響的應用
-請手動檢查您的已安裝應用和還原點</value>
+	  <value>無法自動列出受影響的應用程式
+請手動檢查已安裝的應用程式和還原點</value>
 	</data>
 
 	<!-- RestoreSelector.xaml.cs -->
@@ -52,10 +52,10 @@
 		<value>應用程式安裝</value>
 	</data>
 	<data name="RestorePointType_ApplicationUninstall" xml:space="preserve">
-		<value>應用程式卸載</value>
+		<value>應用程式解除安裝</value>
 	</data>
 	<data name="RestorePointType_DeviceDriverInstall" xml:space="preserve">
-		<value>設備驅動程式安裝</value>
+		<value>驅動程式安裝</value>
 	</data>
 	<data name="RestorePointType_ModifySettings" xml:space="preserve">
 		<value>修改設定</value>
@@ -139,7 +139,7 @@
 	</data>
 
 	<data name="Cancel" xml:space="preserve">
-	  <value>不還原</value>
+	  <value>不要還原</value>
 	</data>
 	<data name="Back" xml:space="preserve">
 	  <value>返回</value>

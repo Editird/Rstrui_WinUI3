@@ -7,7 +7,7 @@
 	  <value>系统还原</value>
 	</data>
 	<data name="SubTitle" xml:space="preserve">
-	  <value>系统还原帮助修复您的电脑问题，记录还原点以恢复您最近的系统更改。它不会影响您的文档、照片或其他个人文件。</value>
+	  <value>系统还原有助於修复您的电脑问题，记录还原点以恢复您最近的系统更改。它不会影响您的文档、照片或其他个人文件。</value>
 	</data>
 	<data name="LearnMore" xml:space="preserve">
 	  <value>了解更多</value>
@@ -38,7 +38,7 @@
 	</data>
 	<data name="AffectedAppsContent" xml:space="preserve">
 	  <value>无法自动列出受影响的应用
-请手动检查您的已安装应用和还原点</value>
+请手动检查已安装的应用和还原点</value>
 	</data>
 
 	<!-- RestoreSelector.xaml.cs -->
@@ -139,7 +139,7 @@
 	</data>
 
 	<data name="Cancel" xml:space="preserve">
-	  <value>不还原</value>
+	  <value>不要还原</value>
 	</data>
 	<data name="Back" xml:space="preserve">
 	  <value>返回</value>
