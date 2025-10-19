@@ -29,6 +29,16 @@ namespace Rstrui_WinUI3
 		{
 			InitializeComponent();
 			ExtendsContentIntoTitleBar = true;
+			Closed += MainWindow_Closed;
+		}
+
+		private void MainWindow_Closed(object sender, WindowEventArgs args)
+		{
+			if (App.IsRestoreInProgress)
+			{
+				// Prevent closing the window during restore
+				args.Handled = true;
+			}
 		}
 	}
 }

@@ -86,6 +86,11 @@
 								Text="{x:Bind LocalizedStrings.RestoreResultType}" />
 							<TextBlock VerticalAlignment="Center" Text="{x:Bind RestorePoint.Type}" />
 						</StackPanel>
+						<ProgressRing
+							x:Name="RestoreProgressRing"
+							HorizontalAlignment="Center"
+							IsActive="True"
+							Visibility="Collapsed" />
 					</StackPanel>
 				</Border>
 			</Grid>
@@ -110,6 +115,7 @@
 
 				<!--  Back 按鈕  -->
 				<Button
+					x:Name="BackButton"
 					Grid.Column="1"
 					MinWidth="140"
 					Margin="0,0,12,0"

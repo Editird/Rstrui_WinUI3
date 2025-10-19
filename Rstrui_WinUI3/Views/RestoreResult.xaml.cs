@@ -65,6 +65,12 @@ namespace Rstrui_WinUI3.Views
                 return;
             }
 
+            // 顯示進度環並禁用按鈕
+            RestoreProgressRing.Visibility = Visibility.Visible;
+            NextButton.IsEnabled = false;
+			BackButton.IsEnabled = false;
+            App.IsRestoreInProgress = true;
+
             // 執行還原
             try
             {
@@ -88,6 +94,10 @@ namespace Rstrui_WinUI3.Views
                     {
                         SystemRestoreHelper.RebootSystem();
                     }
+                    else
+                    {
+                        Application.Current.Exit();
+                    }
                 }
                 else
                 {
@@ -101,6 +111,15 @@ namespace Rstrui_WinUI3.Views
             catch (Exception ex)
             {
                 await ShowErrorDialog(LocalizedStrings.RestoreResultUnknownErrorTitle, string.Format(LocalizedStrings.RestoreResultUnknownErrorContent, ex.Message));
+                Application.Current.Exit();
+            }
+            finally
+            {
+                // 隱藏進度環並啟用按鈕
+                RestoreProgressRing.Visibility = Visibility.Collapsed;
+                NextButton.IsEnabled = true;
+                BackButton.IsEnabled = true;
+                App.IsRestoreInProgress = false;
             }
         }
 

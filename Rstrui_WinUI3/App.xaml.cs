@@ -29,6 +29,11 @@ namespace Rstrui_WinUI3
         private Window? _window;
 
         /// <summary>
+        /// Indicates if system restore is in progress. Used to prevent window closing.
+        /// </summary>
+        public static bool IsRestoreInProgress { get; set; } = false;
+
+        /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
