@@ -9,6 +9,25 @@
     mc:Ignorable="d">
 
     <Grid>
-    
+        <StackPanel Margin="20">
+            <TextBlock Text="Restore Point Details" FontSize="24" FontWeight="Bold" Margin="0,0,0,20" />
+
+            <TextBlock Text="Name:" FontWeight="Bold" />
+            <TextBlock Text="{x:Bind RestorePoint.Name}" Margin="0,0,0,10" />
+
+            <TextBlock Text="Date:" FontWeight="Bold" />
+            <TextBlock Text="{x:Bind RestorePoint.DateTimeFormatted}" Margin="0,0,0,10" />
+
+            <TextBlock Text="Type:" FontWeight="Bold" />
+            <TextBlock Text="{x:Bind RestorePoint.Type}" Margin="0,0,0,10" />
+
+            <TextBlock Text="Sequence Number:" FontWeight="Bold" />
+            <TextBlock Text="{x:Bind RestorePoint.SequenceNumber}" Margin="0,0,0,10" />
+
+            <TextBlock Text="Description:" FontWeight="Bold" />
+            <TextBlock Text="{x:Bind RestorePoint.Description}" Margin="0,0,0,10" />
+
+            <Button Content="Back" Click="Back_Click" HorizontalAlignment="Left" Margin="0,20,0,0" />
+        </StackPanel>
     </Grid>
 </Page>

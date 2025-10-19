@@ -24,9 +24,29 @@ namespace Rstrui_WinUI3.Views
     public sealed partial class RestoreResult : Page
     {
 		public LocalizedStrings LocalizedStrings { get; } = new();
-		public RestoreResult()
+		public RestorePointInfo? RestorePoint { get; set; } = new RestorePointInfo();
+
+        public RestoreResult()
         {
             InitializeComponent();
+            this.DataContext = this;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            if (e.Parameter is RestorePointInfo restorePoint)
+            {
+                RestorePoint = restorePoint;
+            }
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            if (Frame != null && Frame.CanGoBack)
+            {
+                Frame.GoBack();
+            }
         }
     }
 }

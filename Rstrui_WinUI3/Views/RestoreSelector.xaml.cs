@@ -209,26 +209,7 @@ namespace Rstrui_WinUI3.Views
 		{
 			if (RestorePointsListView.SelectedItem is RestorePointInfo selectedPoint)
 			{
-				var dialog = new ContentDialog
-				{
-					Title = "Restore Point Details",
-					Content = $"Name: {selectedPoint.Name}\n\n" +
-							  $"Date: {selectedPoint.DateTimeFormatted}\n\n" +
-							  $"Type: {selectedPoint.Type}\n\n" +
-							  $"Sequence Number: {selectedPoint.SequenceNumber}\n\n" +
-							  $"Description: {selectedPoint.Description}",
-					PrimaryButtonText = "Continue",
-					CloseButtonText = "Cancel",
-					XamlRoot = this.XamlRoot
-				};
-
-				var result = await dialog.ShowAsync();
-
-				if (result == ContentDialogResult.Primary)
-				{
-					// Proceed to next step - uncomment when ready
-					// Frame.Navigate(typeof(RestoreResult), selectedPoint, new SlideNavigationTransitionInfo());
-				}
+				Frame.Navigate(typeof(RestoreResult), selectedPoint, new SlideNavigationTransitionInfo());
 			}
 		}
 	}
